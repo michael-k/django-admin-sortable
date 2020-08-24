@@ -1,7 +1,6 @@
 language: python
 
 python:
-    - "3.5"
     - "3.6"
     - "3.7"
     - "3.8"
@@ -9,16 +8,17 @@ python:
 env:
     - DJANGO_VERSION=2.2 SAMPLE_PROJECT=sample_project
     - DJANGO_VERSION=3.0 SAMPLE_PROJECT=sample_project
+    - DJANGO_VERSION=3.1 SAMPLE_PROJECT=sample_project
 
 branches:
     only:
         - develop
 
 matrix:
-    exclude:
+    include:
         -
             python: "3.5"
-            env: DJANGO_VERSION=3.0 SAMPLE_PROJECT=sample_project
+            env: DJANGO_VERSION=2.2 SAMPLE_PROJECT=sample_project
 
 install:
     - pip install django==$DJANGO_VERSION
